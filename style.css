@@ -1,0 +1,76 @@
+:root {
+  --bg: #faf8f4;
+  --fg: #1f2327;
+  --muted: #5d656d;
+  --line: #e6e1d8;
+  --teal: #0f9d94;
+  --coral: #ff6b5e;
+  --card: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14181b;
+    --fg: #eceae5;
+    --muted: #9aa3aa;
+    --line: #2a3035;
+    --teal: #2fc4b9;
+    --coral: #ff8277;
+    --card: #1b2024;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+[hidden] { display: none !important; }
+a { color: var(--teal); text-underline-offset: 3px; }
+a:hover { color: var(--coral); }
+
+.top {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+nav {
+  max-width: 760px; margin: 0 auto; padding: 10px 16px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.brand {
+  font-weight: 700; letter-spacing: .04em; text-decoration: none;
+  color: var(--fg); padding: 2px 8px; border-radius: 6px; background: var(--teal); color: #fff;
+}
+nav ul { display: flex; gap: 14px; list-style: none; margin: 0; padding: 0; flex: 1; flex-wrap: wrap; }
+nav ul a { color: var(--muted); text-decoration: none; font-size: 15px; }
+nav ul a:hover { color: var(--fg); }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.lang button {
+  background: transparent; border: 0; color: var(--muted);
+  padding: 4px 10px; font: inherit; font-size: 14px; cursor: pointer;
+}
+.lang button[aria-pressed="true"] { background: var(--coral); color: #fff; }
+
+main, footer { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+section { padding: 40px 0; border-bottom: 1px solid var(--line); }
+section:last-child { border-bottom: 0; }
+.hero { padding-top: 56px; }
+h1 { font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.15; margin: 0 0 8px; }
+h2 { font-size: 1.4rem; margin: 0 0 12px; }
+.role { color: var(--teal); font-weight: 600; margin: 0 0 20px; }
+.about { max-width: 62ch; }
+.buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.btn {
+  display: inline-block; padding: 10px 18px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--card);
+  color: var(--fg); text-decoration: none; font-weight: 600; font-size: 15px;
+}
+.btn:hover { border-color: var(--coral); color: var(--coral); }
+.btn.primary { background: var(--teal); border-color: var(--teal); color: #fff; }
+.btn.primary:hover { background: var(--coral); border-color: var(--coral); color: #fff; }
+footer { padding-top: 24px; padding-bottom: 40px; color: var(--muted); font-size: 14px; }
